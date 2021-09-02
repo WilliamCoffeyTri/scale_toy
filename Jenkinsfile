@@ -61,8 +61,9 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
+        sh 'which docker'
         input 'Approve'
       }
     }
