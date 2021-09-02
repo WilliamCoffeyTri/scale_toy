@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('gcc') {
       steps {
-        sh '''echo "Hello World!"
-'''
+        sh 'gcc -v'
       }
     }
 
