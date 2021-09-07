@@ -78,7 +78,7 @@ pipeline {
 
  cp -r $(pwd) /tmp; cd /tmp/$(basename $(pwd));'''
         sh 'ls $(pwd)'
-        sh 'cd /tmp/$(basename $(pwd)); docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/tmp/scale_toy_main"'
+        sh 'cd /tmp/$(basename $(pwd)); docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app"'
         sh 'cat rosecheckers.txt'
       }
     }
