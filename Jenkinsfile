@@ -66,7 +66,7 @@ pipeline {
         input 'Approve'
         sh 'pwd'
         sh 'ls'
-        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "whoami"'
+        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls"'
         sh 'cat rosecheckers.txt'
       }
     }
