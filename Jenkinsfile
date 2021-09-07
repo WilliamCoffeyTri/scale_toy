@@ -76,9 +76,9 @@ pipeline {
 
 
 
- cp -r $(pwd) /home/jenkins/workspace; cd /home/jenkins/workspace/$(basename $(pwd)); touch flag'''
+ cp -r $(pwd) /home/jenkins/workspace; cd /home/jenkins/workspace/$(basename $(pwd)); touch /home/jenkins/workspace/flag'''
         sh 'pwd; ls /home/jenkins/workspace'
-        sh 'cd /home/jenkins/workspace/$(basename $(pwd));  docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "whoami; stat /app/home/jenkins/workspace/scale_toy_main; ls /app/home/jenkins/workspace/scale_toy_main"'
+        sh 'cd /home/jenkins/workspace/$(basename $(pwd));  docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "whoami; stat /app/home/jenkins/workspace/scale_toy_main; ls /app/home/jenkins/workspace/"'
         sh 'cat rosecheckers.txt'
       }
     }
