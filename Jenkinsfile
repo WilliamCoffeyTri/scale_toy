@@ -66,7 +66,7 @@ pipeline {
         input 'Approve'
         sh 'pwd'
         sh 'cp -r $(pwd) /home/jenkins/workspace/scale_toy; cd /home/jenkins/workspace/scale_toy  '
-        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/etc"'
+        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/"'
         sh 'cat rosecheckers.txt'
       }
     }
