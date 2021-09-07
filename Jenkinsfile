@@ -78,7 +78,7 @@ pipeline {
 
  cp -r $(pwd) /home/jenkins/workspace; cd /home/jenkins/workspace/$(basename $(pwd)); pwd'''
         sh 'pwd; ls /home/jenkins/workspace'
-        sh 'cd /home/jenkins/workspace/$(basename $(pwd)); ls; docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/home/jenkins/workspace"'
+        sh 'cd /home/jenkins/workspace/$(basename $(pwd)); ls; docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/home/jenkins/workspace/scale_toy_main"'
         sh 'cat rosecheckers.txt'
       }
     }
