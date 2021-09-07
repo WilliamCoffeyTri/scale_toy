@@ -64,7 +64,7 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers \\$(find /app -name \\"*.c\\") 2>&1" > rosecheckers.txt'
+        sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers /app/ARR36-C/*.c 2>&1" > rosecheckers.txt'
       }
     }
 
