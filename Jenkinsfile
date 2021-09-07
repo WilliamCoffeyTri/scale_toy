@@ -66,7 +66,7 @@ pipeline {
         input 'Approve'
         sh 'pwd'
         sh 'mkdir test; touch test/flag;'
-        sh 'docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app"'
+        sh 'docker run -v /:/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/var/jenkins_home/workspace"'
         sh 'cat rosecheckers.txt'
       }
     }
