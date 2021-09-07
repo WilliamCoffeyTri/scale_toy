@@ -63,6 +63,8 @@ pipeline {
 
     stage('error') {
       steps {
+        sh '''whoami
+'''
         input 'Approve'
         sh 'sudo docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers /app/*.c 2>&1" > rosecheckers.txt'
       }
