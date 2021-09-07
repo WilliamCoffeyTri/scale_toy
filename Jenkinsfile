@@ -64,7 +64,7 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh '''rm -rf  /tmp/$(basename $(pwd)); 
+        sh '''rm -rf  /home/jenkins/workspace/$(basename $(pwd)); 
 
 
 
@@ -76,9 +76,9 @@ pipeline {
 
 
 
- cp -r $(pwd) /tmp; cd /tmp/$(basename $(pwd)); pwd'''
-        sh 'pwd; ls /tmp'
-        sh 'cd /tmp/$(basename $(pwd)); docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app"'
+ cp -r $(pwd) /home/jenkins/workspace; cd /home/jenkins/workspace/$(basename $(pwd)); pwd'''
+        sh 'pwd; ls /home/jenkins/workspace'
+        sh 'cd /home/jenkins/workspace/$(basename $(pwd)); docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app"'
         sh 'cat rosecheckers.txt'
       }
     }
