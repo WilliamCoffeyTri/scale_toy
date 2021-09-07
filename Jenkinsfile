@@ -64,8 +64,8 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh 'pwd'
         sh 'cp -r $(pwd) /home/jenkins/workspace/scale_toy; cd /home/jenkins/workspace/scale_toy  '
+        sh 'ls $(pwd)'
         sh 'docker run -v $(pwd):/app ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /app/"'
         sh 'cat rosecheckers.txt'
       }
