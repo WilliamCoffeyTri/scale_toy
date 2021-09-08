@@ -64,7 +64,7 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh 'docker run -v jenkins_home:/var/jenkins_home  ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls $(pwd)"'
+        sh 'docker run -v jenkins_home:/var/jenkins_home  ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers \\$(find $(pwd)/src -name \\"*.c\\") 2>&1" > rosecheckers.txt'
         sh 'cat rosecheckers.txt'
       }
     }
