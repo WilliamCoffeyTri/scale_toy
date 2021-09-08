@@ -64,7 +64,7 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh '  docker run -v jemkins_home:/var/jenkins_home ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /var/jenkins_home"'
+        sh '  touch /workspace/flag1; docker run -v jemkins_home:/var/jenkins_home --mount source=jenkins,target=/workspace ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "ls /workspace"'
         sh 'cat rosecheckers.txt'
       }
     }
