@@ -71,7 +71,7 @@ pipeline {
 
     stage('Post') {
       steps {
-        sh '/var/jenkins_home/post_to_scaife.sh $GIT_COMMIT'
+        sh 'cat rosecheckers.txt; /var/jenkins_home/post_to_scaife.sh $GIT_COMMIT'
       }
     }
 
