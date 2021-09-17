@@ -64,14 +64,13 @@ pipeline {
     stage('error') {
       steps {
         input 'Approve'
-        sh 'docker run -v jenkins_home:/var/jenkins_home  ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers \\$(find $(pwd)/src -name \\"*.c\\") 2>&1" > rosecheckers.txt'
-        sh 'cat rosecheckers.txt'
+        sh 'pwd; docker run -v jenkins_home:/var/jenkins_home  ghcr.io/cmu-sei/cert-rosecheckers/rosebud:latest sh -c "rosecheckers \\$(find $(pwd)/src -name \\"*.c\\") 2>&1" > rosecheckers.txt'
       }
     }
 
     stage('Post') {
       steps {
-        sh 'cat rosecheckers.txt; /var/jenkins_home/post_to_scaife.sh $GIT_COMMIT'
+        sh 'pwd; cat rosecheckers.txt; /var/jenkins_home/post_to_scaife.sh $GIT_COMMIT'
       }
     }
 
