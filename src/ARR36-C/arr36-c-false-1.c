@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int *min(int* list) {
     if(list == NULL || list[0] == 0) {
         return NULL;
@@ -17,6 +18,7 @@ int *min(int* list) {
     return min_addr;
 }
 
+
 int *max(int* list) {
     if(list == NULL || list[0] == 0) {
         return NULL;
@@ -32,6 +34,8 @@ int *max(int* list) {
     }
     return max_addr;
 }
+
+/* Added some blanklines to confound the transfer-verdict process */
 
 int main(int argc, char **argv) {
     int list[] = {10, 0};

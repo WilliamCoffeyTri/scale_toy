@@ -17,7 +17,7 @@ parse(const char *str) {
 int main(int argc, char **argv) {
     int ii;
     for(ii = 1; ii < argc; ii++) {
-        long long int parsed = parse(argv[ii]);
+        const long long int parsed = parse(argv[ii]); // eliminate diagnostic
         printf("Parsed integer: %lld\n", parsed);
     }
     return 0;
