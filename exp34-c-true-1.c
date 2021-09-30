@@ -7,8 +7,10 @@ typedef struct {
 } record_t;
 
 record_t *new_record() {
-    record_t *result;
+    record_t *result, *result2, *result3;
     result = malloc(sizeof(record_t));
+    result2 = malloc(sizeof(record_t));
+    result3 = malloc(sizeof(record_t));
     return result; 
 }
 
